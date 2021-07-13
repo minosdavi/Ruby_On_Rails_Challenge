@@ -16,8 +16,10 @@ class ProductsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @product.description
     fill_in "Order number", with: @product.order_number
+    fill_in "Pay", with: @product.pay
     fill_in "Price", with: @product.price
     fill_in "Stock", with: @product.stock
+    fill_in "Take", with: @product.take
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -30,8 +32,10 @@ class ProductsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @product.description
     fill_in "Order number", with: @product.order_number
+    fill_in "Pay", with: @product.pay
     fill_in "Price", with: @product.price
     fill_in "Stock", with: @product.stock
+    fill_in "Take", with: @product.take
     click_on "Update Product"
 
     assert_text "Product was successfully updated"

@@ -1,7 +1,7 @@
 <%= form_with(model: product) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <h2><%= pluralize(product.errors.count, "error") %> Produto não pode ser salvo:</h2>
 
       <ul>
         <% product.errors.each do |error| %>
@@ -12,26 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label "Descrição:"%>
     <%= form.text_area :description %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
+    <%= form.label "Código de barras:" %>
+    <%= form.number_field :order_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label "preço:" %>
     <%= form.text_field :price %>
   </div>
 
   <div class="field">
-    <%= form.label :stock %>
+    <%= form.label "Estoque" %>
     <%= form.number_field :stock %>
   </div>
 
+  <div>
+    <strong>
+      <%= "Caso não tenha promoção digite 1 em Leve e 1 em Pague" %>
+    </strong>
+  </div>
+
   <div class="field">
-    <%= form.label :order_number %>
-    <%= form.number_field :order_number %>
+    <%= form.label "Leve" %>
+    <%= form.number_field :take %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Pague:" %>
+    <%= form.number_field :pay %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Criar produto" %>
   </div>
 <% end %>
