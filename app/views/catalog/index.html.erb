@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Seu catálogo </h1>
+
+<% cache ['Catalog', Product.lastest] do %>
+    <% @products.each do |product| %>
+        <% if product.stock != 0 %> 
+            <tr>
+                <td><%= product.description %></td>
+                <td><%= product.order_number %></td>
+                <td><%= product.price %></td>
+                <td><%= product.stock %></td>
+                <td><%= product.take %></td>
+                <td><%= product.pay %></td>
+                <td><%= form.label "quantidade:" %>
+                <td><%= form.number_field @order_lines:amount %>
+                <td><%= button_to 'adicionar produto', order_lines_path(product.id: product)%></td>
+            </tr>
+        <% end %>
+    <% end %>
+<% end %>
